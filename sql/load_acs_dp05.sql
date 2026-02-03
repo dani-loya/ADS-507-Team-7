@@ -7,5 +7,5 @@ ENCLOSED BY '"'
 LINES TERMINATED BY '\n'
 IGNORE 1 LINES
 (geo_id, zip_code, year, total_population, total_housing_units, median_age);
--- load ACS B01003 dp05
+-- load ACS dp05
 
