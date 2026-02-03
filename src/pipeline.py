@@ -1,1 +1,56 @@
+import mysql.connector
+import os
+
+# Connect to MySQL
+def get_connection():
+    return mysql.connector.connect(
+        host="localhost",
+        user="root",
+        password="yourpassword",
+        database="airbnb_sd",
+        allow_local_infile=True
+    )
+
+# Run a SQL file
+def run_sql_file(cursor, filepath):
+    print(f"Running: {filepath}")
+    with open(filepath, "r") as file:
+        sql_commands = file.read()
+        for command in sql_commands.split(";"):
+            command = command.strip()
+            if command:
+                cursor.execute(command)
+
+# Main pipeline
+def main():
+    conn = get_connection()
+    cursor = conn.cursor()
+
+    # 1. Create schema
+    run_sql_file(cursor, "sql/create_schema.sql")
+    conn.commit()
+
+    # 2. Load Airbnb data
+    run_sql_file(cursor, "sql/load_airbnb.sql")
+    conn.commit()
+
+    # 3. Load ACS DP05 data
+    run_sql_file(cursor, "sql/load_acs_dp05.sql")
+    conn.commit()
+
+    # 4. Load ACS B01003 data
+    run_sql_file(cursor, "sql/load_acs_b01003.sql")
+    conn.commit()
+
+    # 5. Create density view
+    run_sql_file(cursor, "sql/transforms_density.sql")
+    conn.commit()
+
+    print("Pipeline completed successfully.")
+
+    cursor.close()
+    conn.close()
+
+if __name__ == "__main__":
+    main()
 
