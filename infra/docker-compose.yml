@@ -6,7 +6,7 @@ services:
     container_name: airbnb_mysql
     restart: always
     environment:
-      MYSQL_ROOT_PASSWORD: yourpassword
+      MYSQL_ROOT_PASSWORD: Plmokn741
       MYSQL_DATABASE: airbnb_sd
       MYSQL_ALLOW_EMPTY_PASSWORD: "no"
     ports:
