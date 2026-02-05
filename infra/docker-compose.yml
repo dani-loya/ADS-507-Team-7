@@ -10,7 +10,7 @@ services:
       MYSQL_DATABASE: airbnb_sd
       MYSQL_ALLOW_EMPTY_PASSWORD: "no"
     ports:
-      - "3306:3306"
+      - "3307:3306"
     command: --local-infile=1
     volumes:
       - mysql_data:/var/lib/mysql
