@@ -1,6 +1,6 @@
 USE airbnb_sd;
 
-LOAD DATA LOCAL INFILE 'data/raw/airbnb_listings_sd.csv'
+LOAD DATA LOCAL INFILE 'data/raw/airbnb_listings.csv'
 INTO TABLE airbnb_listings
 FIELDS TERMINATED BY ','
 ENCLOSED BY '"'
