@@ -1,7 +1,7 @@
 import mysql.connector
 import os
 
-# ETLT (Extract + Transform (Python) + Load(SQL) + Transform(SQL))
+# ETLT pipeline (Extract + Transform (Python) + Load(SQL) + Transform(SQL))
 # Cleaning step (Extract+Transform)
 from clean_airbnb import clean_airbnb
 
