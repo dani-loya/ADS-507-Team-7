@@ -9,4 +9,3 @@ LINES TERMINATED BY '\n'
 IGNORE 1 LINES
 (geo_id, zip_code, year, total_population);
 
-
