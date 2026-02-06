@@ -3,7 +3,7 @@
 
 The project uses three datasets:
 
-### 1. Airbnb Listings (San Diego)
+### 1. Airbnb Listings (San Diego) -- pending requested 2022 year from Inside Airbnb because this San Diego data is 2019
 Source: <link to dataset>
 Download the CSV and place it in:
 `data/raw/airbnb_listings.csv`
