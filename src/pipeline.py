@@ -1,6 +1,13 @@
 import mysql.connector
 import os
 
+from clean_airbnb import clean_airbnb
+
+airbnb_path = "data/raw/airbnb_listings.csv"  # placeholder for 2022 data
+
+df_airbnb = clean_airbnb(airbnb_path)
+df_airbnb.to_csv("data/processed/airbnb_clean.csv", index=False)
+
 # Connect to MySQL
 def get_connection():
     return mysql.connector.connect(
