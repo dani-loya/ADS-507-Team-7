@@ -1,9 +1,11 @@
 import mysql.connector
 import os
 
+# ETLT (Extract + Transform (Python) + Load(SQL) + Transform(SQL))
+# Cleaning step (Extract+Transform)
 from clean_airbnb import clean_airbnb
 
-airbnb_path = "data/raw/airbnb_listings.csv"  # placeholder for 2022 data
+airbnb_path = "data/raw/airbnb_clean.csv"  # placeholder for 2022 data
 
 df_airbnb = clean_airbnb(airbnb_path)
 df_airbnb.to_csv("data/processed/airbnb_clean.csv", index=False)
@@ -37,7 +39,8 @@ def main():
     # 1. Create schema
     run_sql_file(cursor, "sql/create_schema.sql")
     conn.commit()
-
+    
+# Loading step into MySQL
     # 2. Load Airbnb data
     run_sql_file(cursor, "sql/load_airbnb.sql")
     conn.commit()
@@ -50,6 +53,7 @@ def main():
     run_sql_file(cursor, "sql/load_acs_b01003.sql")
     conn.commit()
 
+#Transformation
     # 5. Create density view
     run_sql_file(cursor, "sql/transforms_density.sql")
     conn.commit()
