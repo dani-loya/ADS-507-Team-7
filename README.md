@@ -1,14 +1,20 @@
 # ADS-507-Team-7
-## Data 
 
-The project uses three datasets:
+## Goal: 
+Investigate Airbnb locations and prices across San Diego using different zipcodes to have a clear data-driven insights on Airbnb activity and its impact on the different neighborhoods and locals. 
+The automated data pipeline findings let us see the tourism across neghtborhoods. 
+
+
+## Data pipeline is designed to perform automatically and be reproducible.
+## Datasets loading:
 
 ### 1. Airbnb Listings (San Diego) -- pending requested 2022 year from Inside Airbnb because this San Diego data is 2019
 Source: <link to dataset>
 Download the CSV and place it in:
 `data/raw/airbnb_listings.csv`
 
-### 2. ACS DP05 (Demographic and Housing Estimates)
+U.S. Census ACS demographic data
+### 2. ACS DP05 (Demographic and Housing Estimates) 
 Source: https://data.census.gov/
 Download the DP05 table as CSV and place it in:
 `data/raw/dp05_raw.csv`
@@ -17,3 +23,12 @@ Download the DP05 table as CSV and place it in:
 Source: https://data.census.gov/
 Download the B01003 table as CSV and place it in:
 `data/raw/b01003_raw.csv`
+
+## Data Cleaning:
+Raw CSV files are cleaned and saved into a new processed folder. 
+data/raw -> cleaned -> data/processed
+
+## Schema
+
+
+## Transformations
