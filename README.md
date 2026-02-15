@@ -12,6 +12,7 @@ The automated data pipeline findings let us see the tourism across neghtborhoods
 Source: https://www.kaggle.com/datasets/thedevastator/san-diego-airbnb-listings-august-2019
 Download the CSV and place it in:
 `data/raw/airbnb_listings.csv`
+Note: While the dataset covers the period 2008–2019, this project focuses on a subset from 2015 to 2019.
 
 U.S. Census ACS demographic data
 ### 2. ACS DP05 (Demographic and Housing Estimates) 
