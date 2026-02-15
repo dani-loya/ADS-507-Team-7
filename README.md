@@ -19,11 +19,13 @@ U.S. Census ACS demographic data
 Source: https://data.census.gov/
 Download the DP05 table as CSV and place it in:
 `data/raw/dp05_raw.csv`
+Note: Based on 2015–2019 5-Year ACS Data for San Diego zip codes
 
 ### 3. ACS B01003 (Total Population)
 Source: https://data.census.gov/
 Download the B01003 table as CSV and place it in:
 `data/raw/b01003_raw.csv`
+Note: Based on 2015–2019 5-Year ACS Data for San Diego zip codes
 
 ## Data Cleaning:
 Raw CSV files are cleaned and saved into a new processed folder. 
