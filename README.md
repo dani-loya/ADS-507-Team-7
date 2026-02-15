@@ -8,8 +8,8 @@ The automated data pipeline findings let us see the tourism across neghtborhoods
 ## Data pipeline is designed to perform automatically and be reproducible.
 ## Datasets loading:
 
-### 1. Airbnb Listings (San Diego) -- pending requested 2022 year from Inside Airbnb because this San Diego data is 2019
-Source: <link to dataset>
+### 1. San Diego Airbnb Listings 
+Source: https://www.kaggle.com/datasets/thedevastator/san-diego-airbnb-listings-august-2019
 Download the CSV and place it in:
 `data/raw/airbnb_listings.csv`
 
