@@ -3,7 +3,7 @@ import pandas as pd
 def clean_airbnb(path):
     df = pd.read_csv(path, low_memory=False)
 
-    # Rename columns to match SQL schema
+    # Standardize column names to match SQL schema
     df = df.rename(columns={
         "id": "listing_id",
         "neighbourhood_cleansed": "neighbourhood",
@@ -11,8 +11,24 @@ def clean_airbnb(path):
         "nightly_price": "price"
     })
 
-    # Convert ZIP to string and pad
-    df["zip_code"] = df["zip_code"].astype(str).str.zfill(5)
+    # Clean ZIP codes
+    df["zip_code"] = (
+        df["zip_code"]
+        .astype(str)
+        .str.extract(r"(\d{5})")  # keep only valid 5-digit ZIPs
+        .fillna("00000")
+    )
+
+    # Convert price to numeric
+    df["price"] = (
+        df["price"]
+        .astype(str)
+        .str.replace(r"[^0-9.]", "", regex=True)
+    )
+    df["price"] = pd.to_numeric(df["price"], errors="coerce")
+
+    # Parse last_review as datetime
+    df["last_review"] = pd.to_datetime(df["last_review"], errors="coerce")
 
     # Columns required by SQL
     keep = [
