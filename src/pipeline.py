@@ -1,3 +1,5 @@
+#!/usr/bin/env python3
+
 import mysql.connector
 import os
 
@@ -15,21 +17,26 @@ def get_connection():
         allow_local_infile=True
     )
 
+# ---------------------------------------------------------
+# CORRECT SQL EXECUTION FUNCTION (multi-statement support)
+# ---------------------------------------------------------
 def run_sql_file(cursor, filepath):
+    print(f"Running: {filepath}")   # helpful debug
     with open(filepath, "r") as file:
         sql = file.read()
 
+    # MySQL executes the entire SQL file correctly with multi=True
     for result in cursor.execute(sql, multi=True):
         pass
+# ---------------------------------------------------------
 
 def main():
     # 1. CLEANING STEP
     df_airbnb = clean_airbnb("data/raw/listings (6).csv")
     df_airbnb.to_csv("data/processed/airbnb_clean.csv", index=False)
 
-    # DP05
+    # DP05 + B01003 cleaners run automatically on import
     import clean_dp05
-    # B01003
     import clean_b01003
 
     # 2. CONNECT TO MYSQL
