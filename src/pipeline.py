@@ -16,13 +16,11 @@ def get_connection():
     )
 
 def run_sql_file(cursor, filepath):
-    print(f"Running: {filepath}")
     with open(filepath, "r") as file:
-        sql_commands = file.read()
-        for command in sql_commands.split(";"):
-            command = command.strip()
-            if command:
-                cursor.execute(command)
+        sql = file.read()
+
+    for result in cursor.execute(sql, multi=True):
+        pass
 
 def main():
     # 1. CLEANING STEP
