@@ -3,10 +3,13 @@ CREATE DATABASE IF NOT EXISTS airbnb_sd;
 USE airbnb_sd;
 
 -- Airbnb listings table
+-- Airbnb listings table
 CREATE TABLE IF NOT EXISTS airbnb_listings (
     listing_id BIGINT PRIMARY KEY,
     name VARCHAR(255),
-    zipcode VARCHAR(10),
+    host_id BIGINT,
+    neighbourhood VARCHAR(255),
+    zip_code VARCHAR(10),
     latitude DECIMAL(9,6),
     longitude DECIMAL(9,6),
     room_type VARCHAR(100),
@@ -15,8 +18,8 @@ CREATE TABLE IF NOT EXISTS airbnb_listings (
     number_of_reviews INT,
     last_review DATE,
     reviews_per_month DECIMAL(5,2),
-    calculated_host_listings_count INT,
-    availability_365 INT
+    availability_365 INT,
+    data_year INT
 );
 
 -- ACS DP05 table (Demographic and Housing Estimates)
