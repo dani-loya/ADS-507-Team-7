@@ -17,7 +17,7 @@ CREATE TABLE IF NOT EXISTS airbnb_listings (
     name VARCHAR(255),
     host_id BIGINT,
     neighbourhood VARCHAR(255),
-    zip_code VARCHAR(10),
+    zip_code VARCHAR(20),
     latitude DECIMAL(9,6),
     longitude DECIMAL(9,6),
     room_type VARCHAR(100),
