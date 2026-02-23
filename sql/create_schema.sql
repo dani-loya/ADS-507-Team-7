@@ -2,6 +2,11 @@
 CREATE DATABASE IF NOT EXISTS airbnb_sd;
 USE airbnb_sd;
 
+-- Drop the existing tables so new & clean schema can be recreated
+DROP TABLE IF EXISTS airbnb_listings;
+DROP TABLE IF EXISTS acs_dp05;
+DROP TABLE IF EXISTS acs_b01003;
+
 -- Airbnb listings table
 CREATE TABLE IF NOT EXISTS airbnb_listings (
     listing_id BIGINT PRIMARY KEY,
