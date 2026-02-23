@@ -1,8 +1,7 @@
--- Section for SQL schema -- Create database
+-- Create database
 CREATE DATABASE IF NOT EXISTS airbnb_sd;
 USE airbnb_sd;
 
--- Airbnb listings table
 -- Airbnb listings table
 CREATE TABLE IF NOT EXISTS airbnb_listings (
     listing_id BIGINT PRIMARY KEY,
@@ -22,23 +21,18 @@ CREATE TABLE IF NOT EXISTS airbnb_listings (
     data_year INT
 );
 
--- ACS DP05 table (Demographic and Housing Estimates)
+-- ACS DP05 table (matches cleaner)
 CREATE TABLE IF NOT EXISTS acs_dp05 (
     geo_id VARCHAR(20),
-    zip_code VARCHAR(10),
-    year INT,
+    name VARCHAR(255),
     total_population INT,
-    total_housing_units INT,
-    median_age DECIMAL(5,2),
-    PRIMARY KEY (zip_code, year)
+    male_population INT,
+    female_population INT
 );
 
--- ACS B01003 table (Total Population)
+-- ACS B01003 table (matches cleaner)
 CREATE TABLE IF NOT EXISTS acs_b01003 (
     geo_id VARCHAR(20),
-    zip_code VARCHAR(10),
-    year INT,
-    total_population INT,
-    PRIMARY KEY (zip_code, year)
+    name VARCHAR(255),
+    total_population INT
 );
-
