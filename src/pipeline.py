@@ -1,16 +1,10 @@
 import mysql.connector
 import os
 
-# ETLT pipeline (Extract + Transform (Python) + Load(SQL) + Transform(SQL))
-# Cleaning step (Extract+Transform)
 from clean_airbnb import clean_airbnb
+from clean_dp05 import *
+from clean_b01003 import *
 
-airbnb_path = "data/raw/airbnb_listings.csv"  # placeholder for 2022 data
-
-df_airbnb = clean_airbnb(airbnb_path)
-df_airbnb.to_csv("data/processed/airbnb_listings.csv", index=False)
-
-# Connect to MySQL
 def get_connection():
     return mysql.connector.connect(
         host="localhost",
@@ -21,7 +15,6 @@ def get_connection():
         allow_local_infile=True
     )
 
-# Run a SQL file
 def run_sql_file(cursor, filepath):
     print(f"Running: {filepath}")
     with open(filepath, "r") as file:
@@ -31,30 +24,35 @@ def run_sql_file(cursor, filepath):
             if command:
                 cursor.execute(command)
 
-# Main pipeline
 def main():
+    # 1. CLEANING STEP
+    df_airbnb = clean_airbnb("data/raw/listings (6).csv")
+    df_airbnb.to_csv("data/processed/airbnb_clean.csv", index=False)
+
+    # DP05
+    import clean_dp05
+    # B01003
+    import clean_b01003
+
+    # 2. CONNECT TO MYSQL
     conn = get_connection()
     cursor = conn.cursor()
 
-    # 1. Create schema
+    # 3. CREATE SCHEMA
     run_sql_file(cursor, "sql/create_schema.sql")
     conn.commit()
-    
-# Loading step into MySQL
-    # 2. Load Airbnb data
+
+    # 4. LOAD CLEANED DATA
     run_sql_file(cursor, "sql/load_airbnb.sql")
     conn.commit()
 
-    # 3. Load ACS DP05 data
     run_sql_file(cursor, "sql/load_acs_dp05.sql")
     conn.commit()
 
-    # 4. Load ACS B01003 data
     run_sql_file(cursor, "sql/load_acs_b01003.sql")
     conn.commit()
 
-#Transformation
-    # 5. Create density view
+    # 5. TRANSFORMATIONS
     run_sql_file(cursor, "sql/transforms_density.sql")
     conn.commit()
 
@@ -65,4 +63,3 @@ def main():
 
 if __name__ == "__main__":
     main()
-
