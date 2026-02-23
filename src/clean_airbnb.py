@@ -31,5 +31,5 @@ def clean_airbnb(path):
     return df
 
 if __name__ == "__main__":
-    df = clean_airbnb("data/raw/airbnb_raw.csv")
+    df = clean_airbnb("data/raw/listings (6).csv")
     df.to_csv("data/processed/airbnb_clean.csv", index=False)
