@@ -1,6 +1,6 @@
 import pandas as pd
 
-df = pd.read_csv("data/raw/b01003_raw.csv")
+df = pd.read_csv("data/raw/ACSDT5Y2019.B01003-Data.csv")
 
 columns_to_keep = [
     "GEO_ID",
