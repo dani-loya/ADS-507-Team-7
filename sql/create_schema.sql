@@ -6,6 +6,10 @@ USE airbnb_sd;
 DROP TABLE IF EXISTS airbnb_listings;
 DROP TABLE IF EXISTS acs_dp05;
 DROP TABLE IF EXISTS acs_b01003;
+DROP TABLE IF EXISTS airbnb_density;
+DROP TABLE IF EXISTS airbnb_full_clean;
+DROP TABLE IF EXISTS host_since_restore;
+
 
 -- Airbnb listings table
 CREATE TABLE IF NOT EXISTS airbnb_listings (
