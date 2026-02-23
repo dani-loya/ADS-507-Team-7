@@ -9,25 +9,35 @@ from clean_b01003 import *
 
 def get_connection():
     return mysql.connector.connect(
-        host="localhost",
-        port=3307,
-        user="root",
-        password="Plmokn741",
-        database="airbnb_sd",
-        allow_local_infile=True
+        host="airbnb-sd-db.c9uo2eu8w6nl.us-west-1.rds.amazonaws.com",
+        port=3306,
+        user="admin",
+        password="Airbnb2026!",
+        database="airbnb_project",
+        allow_local_infile=True,
+        client_flags=[mysql.connector.ClientFlag.LOCAL_FILES]
     )
 
 # ---------------------------------------------------------
 # CORRECT SQL EXECUTION FUNCTION (multi-statement support)
 # ---------------------------------------------------------
 def run_sql_file(cursor, filepath):
-    print(f"Running: {filepath}")   # helpful debug
+    print(f"Running: {filepath}")
+
+    if not os.path.exists(filepath):
+        print("FILE NOT FOUND:", filepath)
+        return
+
     with open(filepath, "r") as file:
         sql = file.read()
 
-    # MySQL executes the entire SQL file correctly with multi=True
-    for result in cursor.execute(sql, multi=True):
-        pass
+    print("SQL length:", len(sql))
+
+    try:
+        for result in cursor.execute(sql, multi=True):
+            pass
+    except mysql.connector.Error as err:
+        print(f"ERROR executing {filepath}: {err}")
 # ---------------------------------------------------------
 
 def main():
@@ -42,6 +52,9 @@ def main():
     # 2. CONNECT TO MYSQL
     conn = get_connection()
     cursor = conn.cursor()
+    cursor.execute("USE airbnb_project;")
+
+
 
     # 3. CREATE SCHEMA
     run_sql_file(cursor, "sql/create_schema.sql")

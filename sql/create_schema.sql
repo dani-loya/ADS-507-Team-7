@@ -1,6 +1,3 @@
--- Create database
-CREATE DATABASE IF NOT EXISTS airbnb_sd;
-USE airbnb_sd;
 
 -- Drop the existing tables so new & clean schema can be recreated
 DROP TABLE IF EXISTS airbnb_density;
@@ -18,8 +15,8 @@ CREATE TABLE IF NOT EXISTS airbnb_listings (
     host_id BIGINT,
     neighbourhood VARCHAR(255),
     zip_code VARCHAR(20),
-    latitude DECIMAL(9,6),
-    longitude DECIMAL(9,6),
+    latitude DECIMAL(10,6),
+    longitude DECIMAL(10,6),
     room_type VARCHAR(100),
     price DECIMAL(10,2),
     minimum_nights INT,

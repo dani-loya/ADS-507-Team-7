@@ -37,7 +37,11 @@ def clean_airbnb(path):
         "number_of_reviews", "last_review"
     ]
 
+    # Select only the required columns
     df = df[keep]
+
+    # *** CRITICAL FIX: remove duplicate columns AFTER selecting keep ***
+    df = df.loc[:, ~df.columns.duplicated()]
 
     # Add missing SQL-required columns
     df["reviews_per_month"] = None
