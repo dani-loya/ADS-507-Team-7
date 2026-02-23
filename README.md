@@ -8,24 +8,21 @@ The automated data pipeline findings let us see the tourism across neghtborhoods
 ## Data pipeline is designed to perform automatically and be reproducible.
 ## Datasets loading:
 
-### 1. San Diego Airbnb Listings 
-Source: https://www.kaggle.com/datasets/thedevastator/san-diego-airbnb-listings-august-2019
+### 1. Airbnb Listings (San Diego) -- pending requested 2022 year from Inside Airbnb because this San Diego data is 2019
+Source: <link to dataset>
 Download the CSV and place it in:
 `data/raw/airbnb_listings.csv`
-Note: While the dataset covers the period 2008–2019, this project focuses on a subset from 2015 to 2019.
 
 U.S. Census ACS demographic data
 ### 2. ACS DP05 (Demographic and Housing Estimates) 
 Source: https://data.census.gov/
 Download the DP05 table as CSV and place it in:
 `data/raw/dp05_raw.csv`
-Note: Based on 2015–2019 5-Year ACS Data for San Diego zip codes
 
 ### 3. ACS B01003 (Total Population)
 Source: https://data.census.gov/
 Download the B01003 table as CSV and place it in:
 `data/raw/b01003_raw.csv`
-Note: Based on 2015–2019 5-Year ACS Data for San Diego zip codes
 
 ## Data Cleaning:
 Raw CSV files are cleaned and saved into a new processed folder. 
