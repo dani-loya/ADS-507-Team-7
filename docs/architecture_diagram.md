@@ -1,6 +1,6 @@
 System of the project pipeline
 
-1. Data ingestion
+1. Data extraction
 Raw CSVs stored in data/raw/
 Pipeline reads them directly
 No manual preprocessing 
