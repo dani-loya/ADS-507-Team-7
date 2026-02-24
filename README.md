@@ -98,10 +98,5 @@ The cleaned outputs are saved to data/processed/ and then loaded into the databa
 
 
 
-## Data Cleaning:
-Raw CSV files are cleaned and saved into a new processed folder. 
-data/raw -> cleaned -> data/processed
-
-## Schema
 
 
