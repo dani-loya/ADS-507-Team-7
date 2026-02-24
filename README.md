@@ -8,18 +8,18 @@ The automated data pipeline findings let us see the tourism across neghtborhoods
 ### 1. Airbnb Listings (San Diego) 
 Source: <link to dataset>
 Download the CSV and place it in:
-`data/raw/airbnb_listings.csv`
+`data/raw/listings (6).csv`
 
 U.S. Census ACS demographic data
 ### 2. ACS DP05 (Demographic and Housing Estimates) 
 Source: https://data.census.gov/
 Download the DP05 table as CSV and place it in:
-`data/raw/dp05_raw.csv`
+`data/raw/ACSDP5Y2019.DP05-Data.csv` 
 
 ### 3. ACS B01003 (Total Population)
 Source: https://data.census.gov/
 Download the B01003 table as CSV and place it in:
-`data/raw/b01003_raw.csv`
+`data/raw/ACSDT5Y2019.B01003-Data.csv`
 
 ## Architecture Overview
 
