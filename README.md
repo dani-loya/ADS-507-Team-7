@@ -6,11 +6,11 @@ The automated data pipeline findings let us see the tourism across neghtborhoods
 
 1. Data source
 The project uses two primary storage layers to ensure reproducibility and clear lineage from raw -> processed -> database
-**local storage**
+## local storage
 data/raw/ contains the original CSV files exactly as downloaded.
 data/processed/ contains cleaned and standardized versions of each dataset.
 
-**AWS RDS MySQL database**
+## AWS RDS MySQL database
 stores the final cleaned tables:
 airbnb_listings
 acs_dp05
