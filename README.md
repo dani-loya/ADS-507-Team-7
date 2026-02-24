@@ -98,7 +98,7 @@ The cleaned outputs are saved to data/processed/ and then loaded into the databa
    README.md -> instructions for running the project
    .env.example -> template for environment variables
    
-8. Reproducibility and Deployment
+7. Reproducibility and Deployment
    The pipeline is fully reproducible because:
    All code is version-controlled
    All SQL files are included
@@ -107,7 +107,30 @@ The cleaned outputs are saved to data/processed/ and then loaded into the databa
    .env.example documents required environment variables
    The pipeline runs end‑to‑end with a single command:
 
-Schema
-Database → Reverse Engineer → Selected your RDS connection → Selected schema airbnb_project → Finished
+8. Architecture schema
+   This schema shows how the system follows a modular architecture for reproducibility.
+   Raw Airbnb and ACS datasets are stored in data/raw/ and processed through Python cleaning scripts in src/.
+   Cleaned outputs are saved to data/processed/. The pipeline then connects to an AWS RDS MySQL instance,
+    executes schema and table creation scripts, loads the cleaned datasets, and runs SQL transformations
+   to generate the final analytical table. The architecture separates ingestion, cleaning, loading, and
+   transformation into distinct layers, ensuring that the entire workflow can be reproduced with a single command.
+9. Schema diagram
+   The database schema consists of three tables: airbnb_listings, acs_dp05, and acs_b01003.
+   All three tables are connected through the shared zip_code/geo_id fields, which allow demographic 
+   data from the ACS to be joined with Airbnb listing data at the ZIP‑code level.
+   -- The relationship shoiuld be one to many --
+   ACS tables (one row per ZIP) -> Airbnb listings (many rows per ZIP)
+   One ZIP code appears once in each ACS table (acs_dp05 and acs_b01003).
+   One ZIP code can have many Airbnb listings in airbnb_listings.
+
+   acs_dp05 -> one row per ZIP
+   acs_b01003 -> one row per ZIP
+   airbnb_listings -> many rows per ZIP
+   
+   Database → Reverse Engineer → Selected your RDS connection → Selected schema airbnb_project → Finished
+
+11. Findings table
+    
+
 
 
