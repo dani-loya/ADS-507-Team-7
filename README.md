@@ -5,19 +5,19 @@ Investigate Airbnb locations and prices across San Diego using different zipcode
 The automated data pipeline findings let us see the tourism across neghtborhoods. 
 
 1. Data source
-The project uses two primary storage layers to ensure reproducibility and clear lineage from raw -> processed -> database
-local storage
-data/raw/ contains the original CSV files exactly as downloaded.
-data/processed/ contains cleaned and standardized versions of each dataset.
+   The project uses two primary storage layers to ensure reproducibility and clear lineage from raw -> processed -> database
+   #### Local storage
+   data/raw/ contains the original CSV files exactly as downloaded.
+   data/processed/ contains cleaned and standardized versions of each dataset.
 
-AWS RDS MySQL database
-stores the final cleaned tables:
-airbnb_listings
-acs_dp05
-acs_b01003
-stores derived view:
-airbnb_density
-
+   #### AWS RDS MySQL database
+   stores the final cleaned tables:
+   airbnb_listings
+   acs_dp05
+   acs_b01003
+   stores derived view:
+   airbnb_density
+   
 ## Datasets taken from: 
 
 ### 1. Airbnb Listings (San Diego) 
