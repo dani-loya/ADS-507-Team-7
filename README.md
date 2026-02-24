@@ -23,7 +23,7 @@ Download the B01003 table as CSV and place it in:
 
 ## Architecture Overview
 
-1. Data source
+1. Data source:
    The project uses two primary storage layers to ensure reproducibility and clear lineage from raw -> processed -> database
    #### Local storage
    data/raw/ contains the original CSV files exactly as downloaded.
@@ -37,7 +37,7 @@ Download the B01003 table as CSV and place it in:
    stores derived view:
    airbnb_density
    
-2. Pipeline execution flow
+2. Pipeline execution flow:
    Pipeline is executed through: src/pipeline.py
    This script orchestrates the entire workflow. The entry point ensures the pipeline is fully reproducible.
 
@@ -49,7 +49,7 @@ Download the B01003 table as CSV and place it in:
    6. Run transformation SQL to create the airbnb_density view
    7. Print a final success message when all steps complete
   
-3. Cleaning Layer (Python)
+3. Cleaning Layer (Python):
    Each dataset has its own cleaning script in src/:
    clean_airbnb.py
    clean_dp05.py
@@ -63,8 +63,8 @@ Download the B01003 table as CSV and place it in:
 
 The cleaned outputs are saved to data/processed/ and then loaded into the database.
 
-4. Database Layer (SQL)
-   All SQL logic is stored in the sql/ directory:
+4. Database Layer (SQL):
+    All SQL logic is stored in the sql/ directory:
     create_schema.sql — Creates the database tables
     load_airbnb.sql — Loads cleaned Airbnb data
     load_acs_dp05.sql — Loads ACS demographic data
@@ -84,7 +84,7 @@ The cleaned outputs are saved to data/processed/ and then loaded into the databa
    Listings per 1,000 residents (density metric)
    This view is the primary analytical product of the pipeline.
 
-6. Repository Structure
+6. Repository Structure:
    ADS-507-Team-7
    src -> run the pipeline, python scripts (cleaners, pipeline, utilities)
    sql -> inspect the schema, SQL schema, loaders, transformations
@@ -98,7 +98,7 @@ The cleaned outputs are saved to data/processed/ and then loaded into the databa
    README.md -> instructions for running the project
    .env.example -> template for environment variables
    
-7. Reproducibility and Deployment
+7. Reproducibility and Deployment:
    The pipeline is fully reproducible because:
    All code is version-controlled
    All SQL files are included
@@ -107,14 +107,14 @@ The cleaned outputs are saved to data/processed/ and then loaded into the databa
    .env.example documents required environment variables
    The pipeline runs end‑to‑end with a single command:
 
-8. Architecture schema
+8. Architecture schema:
    This schema shows how the system follows a modular architecture for reproducibility.
    Raw Airbnb and ACS datasets are stored in data/raw/ and processed through Python cleaning scripts in src/.
    Cleaned outputs are saved to data/processed/. The pipeline then connects to an AWS RDS MySQL instance,
     executes schema and table creation scripts, loads the cleaned datasets, and runs SQL transformations
    to generate the final analytical table. The architecture separates ingestion, cleaning, loading, and
    transformation into distinct layers, ensuring that the entire workflow can be reproduced with a single command.
-9. Schema diagram
+9. Schema diagram:
    The database schema consists of three tables: airbnb_listings, acs_dp05, and acs_b01003.
    All three tables are connected through the shared zip_code/geo_id fields, which allow demographic 
    data from the ACS to be joined with Airbnb listing data at the ZIP‑code level.
@@ -129,7 +129,7 @@ The cleaned outputs are saved to data/processed/ and then loaded into the databa
    
    Database → Reverse Engineer → Selected your RDS connection → Selected schema airbnb_project → Finished
 
-11. Findings table
+11. Findings table:
     The Airbnb activity by ZIP code. ZIP codes such as 92109 (Pacific Beach), 92101 (Downtown),
     92103 (Hillcrest/Mission Hills), and 92107 (Ocean Beach) show the highest Airbnb density,
     with more than 20–55 listings per 1,000 residents. These areas attract significant tourism and have
