@@ -1,23 +1,8 @@
-## Architecture Overview
 
 ## Goal: 
 Investigate Airbnb locations and prices across San Diego using different zipcodes to have a clear data-driven insights on Airbnb activity and its impact on the different neighborhoods and locals. 
 The automated data pipeline findings let us see the tourism across neghtborhoods. 
 
-1. Data source
-   The project uses two primary storage layers to ensure reproducibility and clear lineage from raw -> processed -> database
-   #### Local storage
-   data/raw/ contains the original CSV files exactly as downloaded.
-   data/processed/ contains cleaned and standardized versions of each dataset.
-
-   #### AWS RDS MySQL database
-   stores the final cleaned tables:
-   airbnb_listings
-   acs_dp05
-   acs_b01003
-   stores derived view:
-   airbnb_density
-   
 ## Datasets taken from: 
 
 ### 1. Airbnb Listings (San Diego) 
@@ -36,7 +21,22 @@ Source: https://data.census.gov/
 Download the B01003 table as CSV and place it in:
 `data/raw/b01003_raw.csv`
 
+## Architecture Overview
 
+1. Data source
+   The project uses two primary storage layers to ensure reproducibility and clear lineage from raw -> processed -> database
+   #### Local storage
+   data/raw/ contains the original CSV files exactly as downloaded.
+   data/processed/ contains cleaned and standardized versions of each dataset.
+
+   #### AWS RDS MySQL database
+   stores the final cleaned tables:
+   airbnb_listings
+   acs_dp05
+   acs_b01003
+   stores derived view:
+   airbnb_density
+   
 2. Pipeline execution flow
    Pipeline is executed through: src/pipeline.py
    This script orchestrates the entire workflow. The entry point ensures the pipeline is fully reproducible.
