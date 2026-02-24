@@ -96,7 +96,7 @@ The cleaned outputs are saved to data/processed/ and then loaded into the databa
    .env.example documents required environment variables
    The pipeline runs end‑to‑end with a single command:
 
-
-
+Schema
+Database → Reverse Engineer → Selected your RDS connection → Selected schema airbnb_project → Finished
 
 
