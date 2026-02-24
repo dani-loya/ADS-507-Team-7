@@ -86,13 +86,14 @@ The cleaned outputs are saved to data/processed/ and then loaded into the databa
 
 6. Repository Structure
    ADS-507-Team-7
-   src -> python scripts (cleaners, pipeline, utilities)
-   sql -> SQL schema, loaders, transformations
-   data 
-      raw
-      processed
-   docs -> diagrams, architecture, README 
-   tests -> unit tests or reproducibitlity tests
+   src -> run the pipeline, python scripts (cleaners, pipeline, utilities)
+   sql -> inspect the schema, SQL schema, loaders, transformations
+   data -> to see the data
+      raw -> as it was downloaded
+      processed -> cleaned files
+   docs -> view, diagrams, architecture, README
+   infra -> run the Docker or database setup
+   tests -> validate reproducibility, unit tests or reproducibitlity tests
    requirements.txt -> python dependencies
    README.md -> instructions for running the project
    .env.example -> template for environment variables
