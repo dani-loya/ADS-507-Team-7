@@ -130,6 +130,11 @@ The cleaned outputs are saved to data/processed/ and then loaded into the databa
    Database → Reverse Engineer → Selected your RDS connection → Selected schema airbnb_project → Finished
 
 11. Findings table
+    The Airbnb activity by ZIP code. ZIP codes such as 92109 (Pacific Beach), 92101 (Downtown),
+    92103 (Hillcrest/Mission Hills), and 92107 (Ocean Beach) show the highest Airbnb density,
+    with more than 20–55 listings per 1,000 residents. These areas attract significant tourism and have
+    smaller residential populations, which amplifies their density values. These ZIP codes also show
+    some of the highest average nightly prices, reflecting strong demand and location desirability.
     
 
 
