@@ -85,9 +85,19 @@ The cleaned outputs are saved to data/processed/ and then loaded into the databa
    This view is the primary analytical product of the pipeline.
 
 6. Repository Structure
-
+   ADS-507-Team-7
+   src -> python scripts (cleaners, pipeline, utilities)
+   sql -> SQL schema, loaders, transformations
+   data 
+      raw
+      processed
+   docs -> diagrams, architecture, README 
+   tests -> unit tests or reproducibitlity tests
+   requirements.txt -> python dependencies
+   README.md -> instructions for running the project
+   .env.example -> template for environment variables
    
-7. Reproducibility and Deployment
+8. Reproducibility and Deployment
    The pipeline is fully reproducible because:
    All code is version-controlled
    All SQL files are included
