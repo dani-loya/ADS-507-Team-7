@@ -135,6 +135,21 @@ The cleaned outputs are saved to data/processed/ and then loaded into the databa
     with more than 20–55 listings per 1,000 residents. These areas attract significant tourism and have
     smaller residential populations, which amplifies their density values. These ZIP codes also show
     some of the highest average nightly prices, reflecting strong demand and location desirability.
+
+12. Analytical view
+    The project generates a SQL view (or final table) called airbnb_density, which merges Airbnb
+    listings with ACS demographic data at the ZIP‑code level. This view aggregates the number of
+    listings per ZIP code, joins population data, and computes listings per 1,000 residents, which is
+    the core metric used in the analysis. By creating this view, the project separates raw data storage from
+    analytical logic, making the analysis cleaner, faster, and easier to reproduce.
+   
+14. AWS RDS (MySQL)
+    The project uses AWS RDS (MySQL) as the central database for storing cleaned Airbnb and ACS datasets.
+    Using a cloud‑hosted database ensures that the pipeline is reproducible, accessible to collaborators,
+    and independent of local machine configurations. The pipeline connects to RDS using credentials stored
+    in a .env file, creates the schema, loads cleaned data, and runs SQL transformations directly on the
+    cloud instance. This setup mirrors real‑world data engineering workflows where cloud databases are used
+    for scalability, reliability, and team collaboration.
     
 
 
