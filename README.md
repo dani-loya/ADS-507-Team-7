@@ -1,4 +1,4 @@
-Architecture Overview
+## Architecture Overview
 
 ## Goal: 
 Investigate Airbnb locations and prices across San Diego using different zipcodes to have a clear data-driven insights on Airbnb activity and its impact on the different neighborhoods and locals. 
@@ -20,7 +20,7 @@ airbnb_density
 
 ## Datasets taken from: 
 
-### 1. Airbnb Listings (San Diego) -- pending requested 2022 year from Inside Airbnb because this San Diego data is 2019
+### 1. Airbnb Listings (San Diego) 
 Source: <link to dataset>
 Download the CSV and place it in:
 `data/raw/airbnb_listings.csv`
